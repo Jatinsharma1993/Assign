@@ -1,0 +1,19 @@
+<div class="container mt-5">
+    <div *ngIf ="!register" style ="text-align :center;">
+        <h1>My Website</h1>
+        <p class= "lead">
+            Welcome to my WebSite...All you need is to sign up!
+        </p>
+        <div class="text-center">
+            <button (click) = "registerToggle()" *ngIf="show" class="btn btn-primary btn-lg mr-2">Register</button>
+        </div>
+  </div>
+  <div *ngIf ="register" class="container">
+      <div class="row justify-content-center">
+          <div class="col-4">
+              <app-register (cancelRegister) = "cancelRegister()"></app-register>
+          </div>
+      </div>
+
+  </div>
+</div>

@@ -1,0 +1,137 @@
+<div class="container mt-3">
+<h2 class="text-center my-4">Please fill the details</h2>
+    <div class="row">
+        <div class="col-md-12">
+            <form [formGroup] = "addDetails.formModel" (ngSubmit) = "getDetails()" autocomplete="off">
+                <div class="form-group row">
+                    <label for="id" class="col-sm-2 col-form-label">ID</label>
+                    <div class="col-sm-10">
+                        <input type="text" 
+                        class="form-control"
+                        formControlName = "user_id" 
+                        placeholder="User ID">
+                        <p class="text-danger" *ngIf="addDetails.formModel.get('user_id').touched && 
+                        addDetails.formModel.get('user_id').errors?.required">This Field is mandatory</p>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="companyName" class="col-sm-2 col-form-label">Company Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" 
+                        class="form-control" 
+                        formControlName = "company_name" 
+                        placeholder="Company Name">
+                        <p class="text-danger " *ngIf="addDetails.formModel.get('company_name').touched && 
+                        addDetails.formModel.get('company_name').errors?.required">This Field is mandatory</p>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="typeOfCompany" class="col-sm-2 col-form-label">Type of Company</label>
+                    <div class="col-sm-10">
+                        <input type="text" 
+                        class="form-control" 
+                        formControlName = "type_of_company" 
+                         placeholder="Type Of Company">
+                         <p class="text-danger " *ngIf="addDetails.formModel.get('type_of_company').touched && 
+                         addDetails.formModel.get('type_of_company').errors?.required">This Field is mandatory</p>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="website" class="col-sm-2 col-form-label">Website</label>
+                    <div class="col-sm-10">
+                        <input type="text" 
+                        class="form-control" 
+                        formControlName = "website" 
+                        placeholder="Website">
+                        <p class="text-danger " *ngIf="addDetails.formModel.get('website').touched && 
+                         addDetails.formModel.get('website').errors?.required">This Field is mandatory</p>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="phone" class="col-sm-2 col-form-label">Phone Number</label>
+                    <div class="col-sm-10">
+                        <input type="number" 
+                        class="form-control"  
+                        formControlName = "phone" 
+                        placeholder="Phone Number">
+                        <p class="text-danger "  *ngIf="addDetails.formModel.get('phone').touched && 
+                        addDetails.formModel.get('phone').errors?.required">This Field is mandatory</p>
+                        <p class="text-danger " *ngIf="addDetails.formModel.get('phone').touched && 
+                        addDetails.formModel.get('phone').errors?.pattern">Please, Enter 10 digit Mobile Number</p>
+                    </div>
+                </div>
+                
+                <div class="form-group row">
+                    <label for="companyAdd" class="col-sm-2 col-form-label">Company Address</label>
+                    <div class="col-sm-10">
+                        <input type="text" 
+                        class="form-control"  
+                        formControlName = "company_address" 
+                        placeholder="Company Address">
+                        <p class="text-danger " *ngIf="addDetails.formModel.get('company_address').touched && 
+                        addDetails.formModel.get('company_address').errors?.required">This Field is mandatory</p>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="city" class="col-sm-2 col-form-label">City</label>
+                    <div class="col-sm-10">
+                        <input type="text" 
+                        class="form-control" 
+                        formControlName = "city"
+                         placeholder="City">
+                         <p class="text-danger " *ngIf="addDetails.formModel.get('city').touched && 
+                        addDetails.formModel.get('city').errors?.required">This Field is mandatory</p>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="state" class="col-sm-2 col-form-label">State</label>
+                    <div class="col-sm-10">
+                        <input type="text"
+                         class="form-control" 
+                         formControlName = "state"
+                          placeholder="State">
+                          <p class="text-danger " *ngIf="addDetails.formModel.get('state').touched && 
+                        addDetails.formModel.get('state').errors?.required">This Field is mandatory</p>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="zipCode" class="col-sm-2 col-form-label">ZipCode</label>
+                    <div class="col-sm-10">
+                        <input type="number" 
+                        class="form-control" 
+                        formControlName = "zipcode"
+                        placeholder="ZipCode">
+                        <p class="text-danger " *ngIf="addDetails.formModel.get('zipcode').touched && 
+                        addDetails.formModel.get('zipcode').errors?.required">This Field is mandatory</p>
+                        <p class="text-danger " *ngIf="addDetails.formModel.get('zipcode').touched && 
+                        addDetails.formModel.get('zipcode').errors?.pattern">Please, Enter 5 digit ZipCode</p>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="country" class="col-sm-2 col-form-label">Country</label>
+                    <div class="col-sm-10">
+                        <input type="text"
+                         class="form-control"
+                         formControlName = "country"
+                          placeholder="Country">
+                          <p class="text-danger"  *ngIf="addDetails.formModel.get('country').touched && 
+                        addDetails.formModel.get('country').errors?.required">This Field is mandatory</p>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-10 offset-sm-2">
+                        <button type="submit" 
+                        class="btn btn-primary"
+                        [disabled] = !addDetails.formModel.valid>Sign in</button>
+                        <button type="button" 
+                        class="btn btn-danger ml-3" 
+                        (click) = "reset()"
+                        [disabled] = addDetails.formModel.untouched>Reset</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+</div>

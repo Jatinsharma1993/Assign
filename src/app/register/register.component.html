@@ -1,0 +1,126 @@
+<h2 class="text-center">Register Form</h2>
+    <form [formGroup] = "authService.formModel" (ngSubmit) = "register()"  autocomplete="off">
+
+        <div class="form-group">
+            <input 
+            type="text" 
+            name="email" 
+            class= "form-control my-4 " 
+            formControlName = "email"
+            placeholder="Email">
+            <p class="text-danger" style="margin-top:-16px;" *ngIf="authService.formModel.get('email').touched && 
+            authService.formModel.get('email').errors?.email">Invalid Email address</p>
+            <p class="text-danger" style="margin-top:-16px;" *ngIf="authService.formModel.get('email').touched && 
+            authService.formModel.get('email').errors?.required">This Field is mandatory</p>
+        </div>
+
+        <div class="form-group">
+            <input 
+            type="text" 
+            name="first_name" 
+            class= "form-control my-4" 
+            formControlName = "first_name"       
+          placeholder="First Name">
+          <p class="text-danger " style="margin-top:-16px;" *ngIf="authService.formModel.get('first_name').touched && 
+        authService.formModel.get('first_name').errors?.required">This Field is mandatory</p>
+        </div>
+
+        
+        <div class="form-group">
+                <input
+                type="password"
+                name="password"
+                class= "form-control my-4"
+                formControlName = "password"
+                placeholder="Password" >
+                <p class="text-danger" style="margin-top:-16px;"
+                *ngIf ="authService.formModel.get('password').touched && 
+                authService.formModel.get('password').errors?.required">This Field is mandatory</p>
+                <p class="text-danger" style="margin-top:-16px;"
+                *ngIf ="authService.formModel.get('password').touched && 
+                authService.formModel.get('password').errors?.minlength">Minimum 6 charactes are required</p>
+        </div>
+
+        
+        <div class="form-group">
+            <input 
+            type="text" 
+            name="role" 
+            class= "form-control my-4" 
+            formControlName = "role"       
+            placeholder="Role">
+            <p class="text-danger " style="margin-top:-16px;" *ngIf="authService.formModel.get('role').touched && 
+        authService.formModel.get('role').errors?.required">This Field is mandatory</p>
+        </div>
+
+
+
+        <div class="form-group">
+            <input 
+            type="text" 
+            name="city" 
+            class= "form-control my-4" 
+            formControlName = "city"       
+            placeholder="City">
+            <p class="text-danger " style="margin-top:-16px;" *ngIf="authService.formModel.get('city').touched && 
+        authService.formModel.get('city').errors?.required">This Field is mandatory</p>
+        </div>
+
+
+
+        <div class="form-group">
+            <input 
+            type="text" 
+            name="state" 
+            class= "form-control my-4" 
+            formControlName = "state"       
+            placeholder="State">
+            <p class="text-danger " style="margin-top:-16px;" *ngIf="authService.formModel.get('state').touched && 
+        authService.formModel.get('state').errors?.required">This Field is mandatory</p>
+        </div>
+
+
+
+        <div class="form-group">
+            <input 
+            type="text" 
+            name="country" 
+            class= "form-control my-4" 
+            formControlName = "country"       
+            placeholder="Country">
+            <p class="text-danger " style="margin-top:-16px;" *ngIf="authService.formModel.get('country').touched && 
+        authService.formModel.get('country').errors?.required">This Field is mandatory</p>
+        </div>
+
+        <div class="form-group">
+            <input 
+            type="text" 
+            name="latitude" 
+            class= "form-control my-4" 
+            formControlName = "latitude"       
+            placeholder="Latitude">
+            <p class="text-danger " style="margin-top:-16px;" *ngIf="authService.formModel.get('latitude').touched && 
+        authService.formModel.get('latitude').errors?.required">This Field is mandatory</p>
+        </div>
+
+        <div class="form-group">
+            <input 
+            type="text" 
+            name="longitude" 
+            class= "form-control my-4" 
+            formControlName = "longitude"       
+            placeholder="Longitude">
+            <p class="text-danger " style="margin-top:-16px;" *ngIf="authService.formModel.get('longitude').touched && 
+        authService.formModel.get('longitude').errors?.required">This Field is mandatory</p>
+        </div>
+
+        
+        <div class="form-group text-center">
+            <button type="submit"
+            class="btn btn-outline-primary btn-md mr-4" [disabled] = "!authService.formModel.valid">Register</button>
+            <button 
+            class="btn btn-outline-danger btn-md" 
+            (click) = "cancel()">Cancel</button>
+        </div>
+
+    </form>

@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+   
+  <div class="container">
+      <a class="navbar-brand text-white" style="cursor: pointer;" routerLink = "/">Assignment</a>
+      <ul class="navbar-nav mr-auto" style="cursor: pointer;">
+          <li class="nav-item">
+              <a class="nav-link" routerLink = "/company-details" *ngIf ="islogin">Company Details</a>
+          </li>
+      </ul>
+  
+      <form class="form-inline" (ngSubmit) = "login(f)" #f = "ngForm" *ngIf ="!islogin">
+          <input type="text" name = "email" class="form-control mx-2" ngModel placeholder="Email">
+          <input type="password" name= "password" class="form-control" ngModel placeholder="Password">
+          <button class="btn btn-success ml-2" type ="submit" [disabled] = "!f.valid">Login</button>
+      </form>  
+      
+      <div class="row" *ngIf ="islogin">
+          <button class ="btn btn-warning btn-md mr-2" (click) = "logout()">
+              Logout
+          </button>
+      </div>
+  </div> 
+
+  
+</nav>
